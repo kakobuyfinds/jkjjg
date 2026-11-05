@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#203e38">
+  <meta name="color-scheme" content="light">
+  <title>BaseTao spreadsheet – fynd, storlekar och QC-guide</title>
+  <meta name="description" content="En svensk guide till BaseTao spreadsheet. Utforska klädkategorier, jämför mått, granska QC-bilder och planera inköp med tydliga checklistor.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:title" content="BaseTao spreadsheet – välj med bättre underlag">
+  <meta property="og:description" content="Från sneakers till accessoarer: kategorier, storleksråd, bildgranskning och praktisk inköpsplanering på svenska.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:alt" content="Röd Nike-sneaker mot en röd bakgrund.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BaseTao spreadsheet – svensk köpguide">
+  <meta name="twitter:description" content="Kategorier, mått, QC-bilder och fraktplanering för ett mer genomtänkt urval.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!--
+    Filnamn: index.html
+    Sidan använder relativa strukturerade identifierare eftersom publiceringsdomänen
+    inte har angetts. Lägg till en självrefererande canonical när slutadressen är känd.
+
+    Redaktionellt sökunderlag:
+    Vald sökfras: BaseTao spreadsheet.
+    Googles resultatsida kunde inte hämtas. Exakta placeringar på Googles första
+    sida har därför inte verifierats. Underlaget nedan omfattar tio webbplatser
+    från den tillgängliga webbsökningen, med sidutdrag eller hämtat sidinnehåll.
+    Sidornas marknadsföringspåståenden har inte använts som verifierade fakta.
+
+    Webbplats                         Observerade sök- och innehållsteman
+    basetaoship.com                    spreadsheet, skor, kläder, kategorinavigering
+    basetaosale.com                    fynd, produktlistor, kategorier
+    basetaotrade.com                   organisering, inköpslistor, produktlänkar
+    basetaoglobal.com                  samlade inköp, bildkontroll
+    basetaoimport.com                  produktöversikt, jämförelse
+    linktr.ee/basetao                  spreadsheet, guider, resurser
+    basetao.tattoo                     nybörjarguide, kategorier, vanliga frågor
+    spreadsheet-basetao.com            QC-bilder, storlekar, fraktunderlag
+    basetao-link.com                   fynd, länkar, skor, huvtröjor
+    basetao-spreadsheet.org/about      metod, oberoende, källkontroll
+
+    Rekommenderade sekundära sökfraser:
+    BaseTao fynd; BaseTao storleksguide; BaseTao QC-bilder; BaseTao fraktplanering.
+
+    Relaterade långsvansämnen integrerade i sidans egna texter:
+    BaseTao spreadsheet på svenska; BaseTao guide för nybörjare;
+    hitta sneakers i en produktlista; jämföra skor före köp;
+    kontrollera innermått på sneakers; välja storlek på huvtröjor;
+    jämföra material i stickade tröjor; läsa måttabell för T-shirts;
+    kontrollera axelbredd på jackor; välja byxlängd och midjemått;
+    mäta huvudomfång för kepsar; jämföra storlekar i matchande set;
+    kontrollera material i underkläder; välja passform på sporttröjor;
+    granska detaljer på accessoarer; BaseTao fynd för en vardagsgarderob;
+    BaseTao storleksguide för kläder; jämföra plaggmått med egna kläder;
+    BaseTao QC-bilder för sneakers; kontrollera sömmar på produktbilder;
+    skillnad mellan referensbilder och QC-bilder; BaseTao fraktplanering;
+    beräkna total inköpskostnad; jämföra fraktalternativ till Sverige;
+    kontrollera produktlänkar före beställning; verifiera äkthet före köp.
+  -->
+
+  <style>
+    :root {
+      --paper: #f6f3eb;
+      --white: #fffefa;
+      --ink: #203e38;
+      --muted: #56665f;
+      --line: #d8ded5;
+      --soft: #e7ece2;
+      --accent: #b3442d;
+      --radius: 18px;
+      --width: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.13; }
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.3rem);
+      letter-spacing: -.065em;
+      max-width: 800px;
+      font-weight: 750;
+    }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); letter-spacing: -.04em; }
+    h3 { font-size: 1.2rem; letter-spacing: -.02em; }
+    p + p { margin-top: 14px; }
+    .wrap { width: min(var(--width), calc(100% - 40px)); margin-inline: auto; }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-weight: 850; letter-spacing: -.05em; font-size: 1.6rem; text-decoration: none; }
+    .brand span { color: var(--accent); }
+    .masthead-note { font-size: .82rem; color: var(--muted); text-align: right; }
+    .intro { padding: 47px 0 30px; }
+    .eyebrow {
+      display: block;
+      font-size: .74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 16px;
+    }
+    .intro p { max-width: 730px; margin-top: 23px; color: var(--muted); font-size: 1.08rem; }
+    .category-panel { margin-bottom: 32px; }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
+    .section-top p { max-width: 410px; color: var(--muted); font-size: .92rem; }
+    .category-panel h2 { font-size: 1.12rem; letter-spacing: -.01em; }
+    .categories { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; }
+    .category {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 105px;
+      padding: 16px;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+    }
+    .category:hover { border-color: var(--ink); background: var(--soft); }
+    .category strong { font-size: .98rem; padding-right: 10px; }
+    .category span { font-size: .77rem; color: var(--muted); }
+    .category b { position: absolute; right: 11px; bottom: 10px; font-weight: 400; }
+    .feature { display: grid; grid-template-columns: 1.15fr 1fr; border-radius: var(--radius); overflow: hidden; background: var(--ink); color: var(--white); }
+    .feature figure { position: relative; min-height: 410px; }
+    .feature img { width: 100%; height: 100%; object-fit: cover; }
+    .feature figcaption {
+      position: absolute;
+      left: 18px;
+      bottom: 17px;
+      padding: 5px 10px;
+      background: rgba(20, 30, 25, .8);
+      color: white;
+      font-size: .74rem;
+      border-radius: 5px;
+    }
+    .feature-copy { padding: clamp(26px, 4vw, 49px); align-self: center; }
+    .feature-copy h2 { margin-bottom: 20px; }
+    .feature-copy p { color: #dde5db; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 750;
+      text-decoration: none;
+      margin-top: 24px;
+    }
+    .button:hover { background: #e9eddf; }
+    .small-note { margin-top: 14px; font-size: .78rem; }
+    .section { padding-top: 65px; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .principle { border-top: 2px solid var(--ink); padding-top: 18px; }
+    .number { display: block; color: var(--accent); font-size: .82rem; font-weight: 800; margin-bottom: 16px; }
+    .principle p { margin-top: 13px; color: var(--muted); }
+    .editorial { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .image-card { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+    .image-card img { width: 100%; height: 295px; object-fit: cover; }
+    .image-card figcaption { padding: 23px; }
+    .image-card figcaption p { color: var(--muted); margin-top: 12px; }
+    .image-card a { display: inline-block; margin-top: 17px; font-weight: 750; }
+    .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+    .guide { padding: 25px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
+    .guide .tag { font-size: .73rem; color: var(--accent); font-weight: 800; display: block; margin-bottom: 16px; }
+    .guide p { color: var(--muted); font-size: .94rem; margin-top: 16px; }
+    .guide ul { padding-left: 19px; margin-bottom: 0; font-size: .92rem; }
+    .guide li + li { margin-top: 9px; }
+    .table-shell { overflow-x: auto; margin-top: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+    table { border-collapse: collapse; width: 100%; text-align: left; font-size: .92rem; }
+    caption { text-align: left; padding: 18px 21px; color: var(--muted); }
+    th, td { padding: 16px 21px; border-top: 1px solid var(--line); vertical-align: top; }
+    thead th { background: var(--soft); }
+    tbody th { min-width: 145px; }
+    .journal { display: grid; grid-template-columns: .65fr 1.35fr; gap: 45px; padding: 35px; background: var(--soft); border-radius: var(--radius); }
+    .journal h2 { margin-top: 8px; }
+    .journal p { color: var(--muted); }
+    .journal ol { padding-left: 22px; margin: 0; }
+    .journal li + li { margin-top: 17px; }
+    .faq { max-width: 900px; margin-top: 25px; }
+    details { border-bottom: 1px solid var(--line); }
+    summary { padding: 21px 30px 21px 0; font-weight: 750; cursor: pointer; }
+    details p { padding: 0 0 23px; max-width: 760px; color: var(--muted); }
+    .endnote { margin-top: 60px; padding: 30px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 30px; }
+    .endnote p { max-width: 760px; font-size: .83rem; color: var(--muted); }
+    .endnote a { font-weight: 750; white-space: nowrap; align-self: start; }
+    @media (max-width: 850px) {
+      .categories { grid-template-columns: repeat(3, 1fr); }
+      .feature { grid-template-columns: 1fr 1fr; }
+      .feature figure { min-height: 380px; }
+      .principles, .guide-grid { grid-template-columns: 1fr; }
+      .principles { gap: 25px; }
+      .journal { grid-template-columns: 1fr; gap: 22px; }
+    }
+    @media (max-width: 590px) {
+      .wrap { width: calc(100% - 28px); }
+      .masthead { min-height: 72px; }
+      .masthead-note { max-width: 145px; font-size: .73rem; }
+      .intro { padding-top: 32px; }
+      .intro p { font-size: 1rem; }
+      .section-top { display: block; }
+      .section-top p { margin-top: 12px; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .category { min-height: 95px; padding: 13px; }
+      .feature, .editorial { grid-template-columns: 1fr; }
+      .feature figure { min-height: 0; }
+      .feature img { height: auto; aspect-ratio: 4 / 3; }
+      .feature-copy { padding: 27px; }
+      .section { padding-top: 43px; }
+      .image-card img { height: auto; aspect-ratio: 3 / 2; }
+      .journal { padding: 25px; }
+      .endnote { flex-direction: column; gap: 18px; }
+      th, td { padding: 13px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .category, .button { transition: background-color .15s ease, border-color .15s ease; }
+    }
+    @media print {
+      body { background: white; color: black; }
+      .feature { background: white; color: black; border: 1px solid #aaa; }
+      .feature-copy p, .small-note { color: black; }
+      .feature figure, .editorial { display: none; }
+      .feature, .guide-grid, .principles { display: block; }
+      .guide, .principle { margin-bottom: 20px; break-inside: avoid; }
+      details p { display: block; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "#webbsida",
+        "name": "BaseTao spreadsheet – fynd, storlekar och QC-guide",
+        "description": "En svensk guide till kategorier, mått, QC-bilder och planering av inköp.",
+        "inLanguage": "sv",
+        "about": [
+          {"@type": "Thing", "name": "BaseTao spreadsheet"},
+          {"@type": "Thing", "name": "Storleksjämförelse"},
+          {"@type": "Thing", "name": "Granskning av QC-bilder"}
+        ],
+        "hasPart": [
+          {"@id": "#artikel-storlek"},
+          {"@id": "#artikel-qc"},
+          {"@id": "#artikel-frakt"},
+          {"@id": "#fragor"}
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-storlek",
+        "headline": "BaseTao storleksguide: utgå från plagget du redan trivs i",
+        "description": "Jämför plaggmått, mätmetod och passform innan du väljer storlek.",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#webbsida"},
+        "articleBody": "Lägg ett plagg som passar dig plant utan att sträcka tyget. Mät bröstbredd, längd och ärm enligt samma metod som säljarens tabell. Ett kroppsmått och ett plaggmått beskriver olika saker. När du jämför plaggmått med egna kläder blir skillnaden mer begriplig än om du enbart jämför storleksbokstäver. För byxor behöver du kontrollera midja, innerben och hur midjan har mätts. För skor är modellens passform och verifierbara innermått mer användbara än en generell omvandling mellan storlekssystem."
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-qc",
+        "headline": "BaseTao QC-bilder: granska det som faktiskt syns",
+        "description": "Skilj referensbilder från bilder av den valda varan och dokumentera sådant som inte kan bedömas.",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#webbsida"},
+        "articleBody": "QC betyder kvalitetskontroll. En referensbild visar en modell eller ett exempel; en bild kopplad till din beställning kan visa den aktuella varan. Kontrollera först variant, färg och storleksmärkning. Jämför sedan form, sömmar och synliga detaljer. Ljus, kameravinkel och komprimering kan påverka hur färger och proportioner ser ut. QC-bilder för sneakers kan visa asymmetri eller synliga märken, men bevisar inte komfort, hållbarhet eller äkthet. Skriv kan inte bedömas när en detalj saknas."
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-frakt",
+        "headline": "BaseTao fraktplanering: skilj varupriset från slutkostnaden",
+        "description": "Samla aktuella kostnadsuppgifter och jämför fraktalternativ med samma underlag.",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#webbsida"},
+        "articleBody": "För att beräkna total inköpskostnad behöver du skilja varupris från eventuell inrikesfrakt, serviceavgifter, internationell transport och tillämpliga importkostnader. Spara valuta och datum för varje uppgift. När du vill jämföra fraktalternativ till Sverige bör offertens vikt, paketmått, innehåll, ersättningsvillkor och eventuella skattehantering vara tydliga. En allmän leveranstidsuppgift är ingen garanti för ett enskilt paket. Bekräfta villkoren för din destination innan du väljer transport."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "#fragor",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#webbsida"},
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Vad är en BaseTao spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Uttrycket används om organiserade produktlistor och resurser för att hitta och jämföra varor i samband med BaseTao. Formatet kan vara ett kalkylblad eller en webbplats. Den här sidan är en svensk guide med kategorilänkar, inte ett nedladdningsbart kalkylblad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vart leder länkarna på den här sidan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kategorilänkarna leder till respektive kategori på cafans.com. Övriga klickbara länkar leder till https://www.cafans.com. De öppnar inte BaseTaos beställningssystem."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur väljer jag storlek när tabellerna skiljer sig?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jämför samma mått och samma mätmetod med ett plagg som passar dig. Kontrollera om tabellen visar kroppsmått eller plaggmått. Be säljaren om förtydligande om måtten är ofullständiga."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan QC-bilder bevisa att en märkesvara är äkta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. QC-bilder kan hjälpa dig att upptäcka synliga avvikelser, men räcker inte som äkthetsbevis. Kontrollera varans ursprung, säljarens dokumentation och möjligheten till en oberoende äkthetsbedömning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Visar sidan aktuella priser eller lagerstatus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. Priser, lager, frakt och köpvillkor måste kontrolleras på destinationssidan före beställning. Bilderna är illustrationer och är inte bekräftade produktannonser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Är sidan officiellt kopplad till BaseTao eller bildens varumärken?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. Det här är en fristående informationssida. Namn och bilder används för att beskriva ämnen och illustrera stil, utan att ange ett officiellt samarbete."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/jkjjg/">
+</head>
+<body>
+  <header class="wrap masthead">
+    <a class="brand" href="https://www.cafans.com" aria-label="Besök Cafans">Cafans<span> /</span></a>
+    <p class="masthead-note">Svensk stilguide<br>Kategorier · Mått · Bildkontroll</p>
+  </header>
+
+  <main class="wrap">
+    <section class="intro" aria-labelledby="sidtitel">
+      <span class="eyebrow">Ett mer genomtänkt urval</span>
+      <h1 id="sidtitel">BaseTao spreadsheet.<br>Från idé till bra underlag.</h1>
+      <p>
+        Börja med rätt kategori. Jämför sedan mått, material och bilder innan
+        du bestämmer dig. Här får du en BaseTao spreadsheet på svenska med
+        korta guider och tydliga vägar vidare till Cafans.
+      </p>
+    </section>
+
+    <nav class="category-panel" aria-label="Produktkategorier på Cafans">
+      <div class="section-top">
+        <h2>Välj kategori först</h2>
+        <p>Alla kategorier öppnas på cafans.com.</p>
+      </div>
+      <div class="categories">
+        <a class="category" href="https://cafans.com/category-911-Shoes.html">
+          <strong>Skor</strong><span>Sneakers och andra skor</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-912-Hoodies%2FSweaters.html">
+          <strong>Huvtröjor &amp; tröjor</strong><span>Mjuka lager och stickat</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-913-T-Shirts.html">
+          <strong>T-shirts</strong><span>Basplagg och tryck</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-914-Jackets.html">
+          <strong>Jackor</strong><span>Form, funktion och lager</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-915-Pants%2FShorts.html">
+          <strong>Byxor &amp; shorts</strong><span>Midja, längd och rörelse</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-916-Headwear.html">
+          <strong>Huvudbonader</strong><span>Kepsar och mössor</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-917-Sets.html">
+          <strong>Matchande set</strong><span>Överdel och underdel</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-918-underwear%2Funderpants.html">
+          <strong>Underkläder</strong><span>Material och passform</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-919-Jersey.html">
+          <strong>Sporttröjor</strong><span>Tröjor för en sportig stil</span><b aria-hidden="true">↗</b>
+        </a>
+        <a class="category" href="https://cafans.com/category-920-Accessories.html">
+          <strong>Accessoarer</strong><span>Detaljer som håller ihop stilen</span><b aria-hidden="true">↗</b>
+        </a>
+      </div>
+    </nav>
+
+    <section class="feature" aria-labelledby="introduktion">
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
+          width="1000"
+          height="750"
+          alt="Röd Nike-sneaker med ljus sula mot en röd bakgrund."
+          fetchpriority="high"
+          loading="eager"
+          decoding="async">
+        <figcaption>Stilbild · ingen bekräftad produktannons</figcaption>
+      </figure>
+      <div class="feature-copy">
+        <span class="eyebrow">Börja här</span>
+        <h2 id="introduktion">En produktlista är början på jämförelsen.</h2>
+        <p>
+          En spreadsheet samlar produktreferenser så att du lättare kan
+          sortera och jämföra. En bild eller länk berättar däremot inte allt
+          om passform, kvalitet eller slutkostnad.
+        </p>
+        <p>
+          Använd denna BaseTao guide för nybörjare som en arbetsordning:
+          välj kategori, kontrollera uppgifterna och spara det du faktiskt vet.
+        </p>
+        <a class="button" href="https://www.cafans.com">Utforska Cafans <span aria-hidden="true">↗</span></a>
+        <p class="small-note">Fristående vägledning. Katalogen öppnas på Cafans.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="urval">
+      <div class="section-top">
+        <h2 id="urval">Tre frågor före köp</h2>
+        <p>Ett litet urval med tydliga uppgifter är lättare att bedöma.</p>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <span class="number">01 / ANVÄNDNING</span>
+          <h3>Vad ska plagget fungera till?</h3>
+          <p>
+            När du letar efter BaseTao fynd för en vardagsgarderob, börja med
+            användningen. Behöver du rörelsefrihet, plats för lager eller en
+            mer kroppsnära silhuett? Välj sedan material och modell.
+          </p>
+        </article>
+        <article class="principle">
+          <span class="number">02 / PASSFORM</span>
+          <h3>Vilka mått går att jämföra?</h3>
+          <p>
+            För att jämföra skor före köp behöver du veta vilken modell och
+            storleksvariant uppgifterna gäller. För kläder är bröstbredd,
+            längd och axelbredd ofta mer användbara än bara S, M eller L.
+          </p>
+        </article>
+        <article class="principle">
+          <span class="number">03 / UNDERLAG</span>
+          <h3>Vad är bekräftat, och vad saknas?</h3>
+          <p>
+            Kontrollera produktlänkar före beställning. Spara vald färg,
+            storlek och datum. Om material, returvillkor eller lagerstatus
+            inte framgår, fråga innan du går vidare.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="stil">
+      <div class="section-top">
+        <h2 id="stil">Två sätt att börja med sneakers</h2>
+        <p>Illustrationerna visar stil och färg, inte tillgänglighet eller äkthetsbedömning.</p>
+      </div>
+      <div class="editorial">
+        <figure class="image-card">
+          <img
+            src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&amp;fit=crop&amp;w=760&amp;q=75"
+            width="760"
+            height="507"
+            alt="Orange Nike-sneakers med mörka detaljer fotograferade från sidan."
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Låt en färg bära uttrycket</h3>
+            <p>
+              Att hitta sneakers i en produktlista blir enklare när du har
+              en färgskala att utgå från. Jämför sedan tåform, sula och
+              material i stället för att välja enbart efter fotot.
+            </p>
+            <a href="https://www.cafans.com">Se fler stilreferenser på Cafans ↗</a>
+          </figcaption>
+        </figure>
+        <figure class="image-card">
+          <img
+            src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&amp;fit=crop&amp;w=760&amp;q=75"
+            width="760"
+            height="507"
+            alt="Ljusa Nike-sneakers med kontrasterande detaljer."
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Bygg vidare med lugna basplagg</h3>
+            <p>
+              Kombinera skornas proportioner med byxornas vidd och längd.
+              Kontrollera innermått på sneakers när sådana finns och
+              jämför med ett par du redan använder.
+            </p>
+            <a href="https://www.cafans.com">Utforska kläder på Cafans ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="kopguide">
+      <div class="section-top">
+        <h2 id="kopguide">Köpguide efter kategori</h2>
+        <p>Välj vad du behöver kontrollera innan du jämför alternativen.</p>
+      </div>
+      <div class="table-shell">
+        <table>
+          <caption>Praktiska kontrollpunkter för kläder, skor och accessoarer.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Kategori</th>
+              <th scope="col">Börja med</th>
+              <th scope="col">Kontrollera också</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Skor</th>
+              <td>Modell, passform och tillgängliga mått.</td>
+              <td>Hälform, tåutrymme och hur storleken har angetts.</td>
+            </tr>
+            <tr>
+              <th scope="row">Huvtröjor &amp; stickat</th>
+              <td>Välja storlek på huvtröjor med hjälp av bröstbredd och längd.</td>
+              <td>Jämföra material i stickade tröjor samt skötselråd och töjbarhet.</td>
+            </tr>
+            <tr>
+              <th scope="row">T-shirts &amp; jackor</th>
+              <td>Läsa måttabell för T-shirts och kontrollera axelbredd på jackor.</td>
+              <td>Ärmlängd och utrymme för det du vill bära under.</td>
+            </tr>
+            <tr>
+              <th scope="row">Byxor &amp; shorts</th>
+              <td>Välja byxlängd och midjemått utifrån samma mätmetod.</td>
+              <td>Innerben, lårvidd, grenlängd och eventuell resår.</td>
+            </tr>
+            <tr>
+              <th scope="row">Huvudbonader</th>
+              <td>Mäta huvudomfång för kepsar.</td>
+              <td>Justeringsmöjlighet, djup och material.</td>
+            </tr>
+            <tr>
+              <th scope="row">Set &amp; sporttröjor</th>
+              <td>Jämföra storlekar i matchande set och välja passform på sporttröjor.</td>
+              <td>Separata mått för överdel och underdel samt märkningens utförande.</td>
+            </tr>
+            <tr>
+              <th scope="row">Underkläder</th>
+              <td>Kontrollera material i underkläder och midjans storleksintervall.</td>
+              <td>Skötsel, sömmar och gällande returvillkor.</td>
+            </tr>
+            <tr>
+              <th scope="row">Accessoarer</th>
+              <td>Granska detaljer på accessoarer med närbilder och angivna mått.</td>
+              <td>Spännen, lås, kanter och information om materialets sammansättning.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="artiklar">
+      <div class="section-top">
+        <h2 id="artiklar">Tre korta fördjupningar</h2>
+        <p>Storlek, bildgranskning och kostnader – läs den del du behöver just nu.</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide" aria-labelledby="storleksartikel">
+          <span class="tag">ARTIKEL / STORLEK</span>
+          <h3 id="storleksartikel">BaseTao storleksguide: utgå från plagget du redan trivs i</h3>
+          <p>
+            Lägg ett plagg som passar dig plant utan att sträcka tyget.
+            Mät bröstbredd, längd och ärm enligt samma metod som säljarens tabell.
+          </p>
+          <p>
+            Ett kroppsmått och ett plaggmått beskriver olika saker.
+            När du jämför plaggmått med egna kläder blir skillnaden mer
+            begriplig än om du enbart jämför storleksbokstäver.
+          </p>
+          <p>
+            För byxor behöver du kontrollera midja, innerben och hur midjan
+            har mätts. För skor är modellens passform och verifierbara
+            innermått mer användbara än en generell omvandling mellan storlekssystem.
+          </p>
+          <ul>
+            <li>Spara måtten tillsammans med vald variant.</li>
+            <li>Fråga om mätmetoden när den är oklar.</li>
+            <li>Utgå inte från att samma bokstav betyder samma passform.</li>
+          </ul>
+        </article>
+
+        <article class="guide" aria-labelledby="qcartikel">
+          <span class="tag">ARTIKEL / BILDKONTROLL</span>
+          <h3 id="qcartikel">BaseTao QC-bilder: granska det som faktiskt syns</h3>
+          <p>
+            QC betyder kvalitetskontroll. En referensbild visar en modell
+            eller ett exempel; en bild kopplad till din beställning kan visa
+            den aktuella varan.
+          </p>
+          <p>
+            Kontrollera först variant, färg och storleksmärkning. Jämför sedan
+            form, sömmar och synliga detaljer. Ljus, kameravinkel och
+            komprimering kan påverka hur färger och proportioner ser ut.
+          </p>
+          <p>
+            QC-bilder för sneakers kan visa asymmetri eller synliga märken,
+            men bevisar inte komfort, hållbarhet eller äkthet.
+            Skriv ”kan inte bedömas” när en detalj saknas.
+          </p>
+          <ul>
+            <li>Skilj mellan referensbilder och QC-bilder.</li>
+            <li>Kontrollera sömmar på produktbilder i tillräcklig upplösning.</li>
+            <li>Be om en tydligare bild när en viktig detalj är dold.</li>
+          </ul>
+        </article>
+
+        <article class="guide" aria-labelledby="fraktartikel">
+          <span class="tag">ARTIKEL / PLANERING</span>
+          <h3 id="fraktartikel">BaseTao fraktplanering: skilj varupriset från slutkostnaden</h3>
+          <p>
+            För att beräkna total inköpskostnad behöver du skilja varupris
+            från eventuell inrikesfrakt, serviceavgifter, internationell
+            transport och tillämpliga importkostnader. Spara valuta och datum
+            för varje uppgift.
+          </p>
+          <p>
+            När du vill jämföra fraktalternativ till Sverige bör offertens
+            vikt, paketmått, innehåll, ersättningsvillkor och eventuella
+            skattehantering vara tydliga.
+          </p>
+          <p>
+            En allmän leveranstidsuppgift är ingen garanti för ett enskilt
+            paket. Bekräfta villkoren för din destination innan du väljer transport.
+          </p>
+          <ul>
+            <li>Använd samma paketunderlag när du jämför offerter.</li>
+            <li>Kontrollera vad som ingår i respektive belopp.</li>
+            <li>Spara transportvillkoren tillsammans med kostnaden.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="arbetsmetod">
+      <div class="journal">
+        <div>
+          <span class="eyebrow">En enkel arbetsmetod</span>
+          <h2 id="arbetsmetod">Spara färre länkar.<br>Spara bättre anteckningar.</h2>
+        </div>
+        <div>
+          <ol>
+            <li>
+              <strong>Identifiera rätt vara.</strong>
+              <p>Spara produktnamn, källadress, färg, storlek och datum så att uppgifterna hör ihop.</p>
+            </li>
+            <li>
+              <strong>Notera sådant som påverkar valet.</strong>
+              <p>Anteckna mått, angivet material och vilka bilder som faktiskt visar den valda varianten.</p>
+            </li>
+            <li>
+              <strong>Markera vad som behöver bekräftas.</strong>
+              <p>Pris, lager, villkor och leveransuppgifter kan ändras. Låt saknad information stå som okänd.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faqrubrik">
+      <span class="eyebrow">Direkta svar</span>
+      <h2 id="faqrubrik">Vanliga frågor</h2>
+      <div class="faq">
+        <details open>
+          <summary>Vad är en BaseTao spreadsheet?</summary>
+          <p>
+            Uttrycket används om organiserade produktlistor och resurser för
+            att hitta och jämföra varor i samband med BaseTao. Formatet kan
+            vara ett kalkylblad eller en webbplats. Den här sidan är en
+            svensk guide med kategorilänkar, inte ett nedladdningsbart kalkylblad.
+          </p>
+        </details>
+        <details>
+          <summary>Vart leder länkarna på den här sidan?</summary>
+          <p>
+            Kategorilänkarna leder till respektive kategori på cafans.com.
+            Övriga klickbara länkar leder till https://www.cafans.com.
+            De öppnar inte BaseTaos beställningssystem.
+          </p>
+        </details>
+        <details>
+          <summary>Hur väljer jag storlek när tabellerna skiljer sig?</summary>
+          <p>
+            Jämför samma mått och samma mätmetod med ett plagg som passar
+            dig. Kontrollera om tabellen visar kroppsmått eller plaggmått.
+            Be säljaren om förtydligande om måtten är ofullständiga.
+          </p>
+        </details>
+        <details>
+          <summary>Kan QC-bilder bevisa att en märkesvara är äkta?</summary>
+          <p>
+            Nej. QC-bilder kan hjälpa dig att upptäcka synliga avvikelser,
+            men räcker inte som äkthetsbevis. Kontrollera varans ursprung,
+            säljarens dokumentation och möjligheten till en oberoende äkthetsbedömning.
+          </p>
+        </details>
+        <details>
+          <summary>Visar sidan aktuella priser eller lagerstatus?</summary>
+          <p>
+            Nej. Priser, lager, frakt och köpvillkor måste kontrolleras på
+            destinationssidan före beställning. Bilderna är illustrationer
+            och är inte bekräftade produktannonser.
+          </p>
+        </details>
+        <details>
+          <summary>Är sidan officiellt kopplad till BaseTao eller bildens varumärken?</summary>
+          <p>
+            Nej. Det här är en fristående informationssida. Namn och bilder
+            används för att beskriva ämnen och illustrera stil, utan att
+            ange ett officiellt samarbete.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap endnote">
+    <div>
+      <p>
+        <strong>Cafans / Svensk guide.</strong>
+        Redaktionella råd om produkturval och jämförelse. Produktbilderna
+        är stilillustrationer från Unsplash och visar inte verifierat
+        sortiment hos Cafans.
+      </p>
+      <p>
+        Varumärken som Nike, Louis Vuitton, Gucci, Hermès och Dior tillhör
+        sina respektive ägare. Ett varumärkesnamn i en produktlista är inte
+        ett äkthetsbevis. Kontrollera dokumentation för att verifiera
+        äkthet före köp.
+      </p>
+    </div>
+    <a href="https://www.cafans.com">Besök Cafans ↗</a>
+  </footer>
+</body>
+</html>
